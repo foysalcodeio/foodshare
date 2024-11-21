@@ -9,10 +9,13 @@ export default {
       fontFamily:{
         poppins : "'Poppins'",
         ubuntu : "Ubuntu",
+        
       },
       colors:{
         "hash-green" : "#00615F",
-        "txt-color" : "#DEE3E3"
+        "txt-color" : "#DEE3E3",
+        "off-white" : "F9F3F0",
+        "light-orange": "FF7973"
       }
     },
   },

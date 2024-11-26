@@ -9,13 +9,14 @@ export default {
       fontFamily:{
         poppins : "'Poppins'",
         ubuntu : "Ubuntu",
+        gummy : ' "Sour Gummy", sans-serif'
         
       },
       colors:{
         "hash-green" : "#00615F",
         "txt-color" : "#DEE3E3",
-        "off-white" : "F9F3F0",
-        "light-orange": "FF7973"
+        "off-white" : "#F9F3F0",
+        "light-orange": "#FF7973"
       }
     },
   },

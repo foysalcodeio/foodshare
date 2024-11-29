@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaMoon, FaHeart, FaBars, FaTimes } from "react-icons/fa";
 import { PiSunDimFill } from "react-icons/pi";
-import { Vegan } from 'lucide-react';
-
+import { Vegan } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,17 +10,17 @@ const Navbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const links = [
-        { name: "Home", href: "#home" },
-        { name: "Business Solution", href: "#BSolution", hasDropdown: true },
-        { name: "About us", href: "#about" },
-        { name: "Food Waste", href: "#waste" },
+        { name: "Home", to: "/", hasDropdown: false },
+        { name: "Business Solution", to: "/business-solution", hasDropdown: true },
+        { name: "About us", to: "/about", hasDropdown: false },
+        { name: "Food Waste", to: "/food-waste", hasDropdown: false },
     ];
 
     const dropdownLinks = [
-        { name: "Consulting", href: "consulting" },
-        { name: "Partnership", href: "partnership" },
-        { name: "Solution", href: "solution" },
-        { name: "Support", href: "support" },
+        { name: "Consulting", to: "/business-solution/consulting" },
+        { name: "Partnership", to: "/business-solution/partnership" },
+        { name: "Solution", to: "/business-solution/solution" },
+        { name: "Support", to: "/business-solution/support" },
     ];
 
     const toggleTheme = () => {
@@ -29,23 +29,24 @@ const Navbar = () => {
     };
 
     return (
-        <header className={` ${darkMode ? "bg-hash-green text-white" : "bg-white text-hash-green"} shadow-md top-0 z-50 sticky`}>
+        <header className={`${darkMode ? "bg-hash-green text-white" : "bg-white text-hash-green"} shadow-md top-0 z-50 sticky`}>
             <div className="max-w-7xl mx-auto flex justify-between items-center px-4 h-16 sm:px-6 lg:px-8">
                 {/* Brand Logo */}
                 <div className="flex items-center text-xl font-bold">
                     <Vegan />
-                    <a href="">FoodShare</a>
+                    <Link to="/">FoodShare</Link>
                 </div>
-
 
                 {/* Navigation Links */}
                 <nav
-                    className={`${isOpen ? "block" : "hidden"} md:flex flex-col md:flex-row gap-2 md:gap-5 absolute md:static duration-500 top-16 left-0 w-full md:w-auto ${darkMode ? "bg-hash-green" : "bg-green-50"} md:bg-transparent space-y-2 md:space-y-0 p-4 md:p-0`}
+                    className={`${isOpen ? "block" : "hidden"} md:flex flex-col md:flex-row gap-2 md:gap-5 absolute md:static duration-500 top-16 left-0 w-full md:w-auto ${
+                        darkMode ? "bg-hash-green" : "bg-green-50"
+                    } md:bg-transparent space-y-2 md:space-y-0 p-4 md:p-0`}
                 >
                     {links.map((link) => (
                         <div key={link.name} className="relative group">
-                            <a
-                                href={link.href}
+                            <Link
+                                to={link.to}
                                 className={`${
                                     darkMode
                                         ? "text-green-50 hover:text-white hover:duration-75 hover:-translate-y-1 hover:border-b-2"
@@ -59,7 +60,7 @@ const Navbar = () => {
                                 }}
                             >
                                 {link.name}
-                            </a>
+                            </Link>
 
                             {link.hasDropdown && dropdownOpen && (
                                 <div
@@ -68,13 +69,13 @@ const Navbar = () => {
                                     } border rounded-md shadow-lg w-48`}
                                 >
                                     {dropdownLinks.map((dropdownLink) => (
-                                        <a
+                                        <Link
                                             key={dropdownLink.name}
-                                            href={dropdownLink.href}
+                                            to={dropdownLink.to}
                                             className="block px-4 py-2 hover:bg-gray-200"
                                         >
                                             {dropdownLink.name}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             )}
@@ -109,7 +110,6 @@ const Navbar = () => {
                 >
                     {isOpen ? <FaTimes /> : <FaBars />}
                 </button>
-
             </div>
         </header>
     );

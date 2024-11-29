@@ -5,13 +5,13 @@ const Header = () => {
         <div>
 
             <div className='relative'>
-                <video autoPlay loop muted playsInline className="w-full object-cover h-[600px]">
+                <video autoPlay loop muted playsInline className="w-full brightness-50 object-cover h-[750px]">
                     <source src="https://static-mkt.toogoodtogo.com/video/web_hero_en_us_1080.mp4" type="video/mp4" />
                 </video>
 
-                <div className="absolute inset-0 md:mt-10 flex flex-col items-center justify-center text-center">
-                    <h1 className='text-3xl md:text-7xl text-white font-bold '>
-                        SAVE GOOD FOOD <br /> FROM GOING TO WASTE
+                <div className="absolute inset-0 md:mt-72 flex flex-col items-center justify-center text-center">
+                    <h1 className='text-3xl md:text-7xl -tracking-wide text-white font-bold '>
+                        SAVE GOOD FOOD FROM <br /> GOING TO WASTE
                     </h1>
                     <div className='sm:flex items-center justify-center gap-4 mt-6'>
                         <p className='bg-hash-green text-white p-3 font-bold flex items-center border-b-2'>
